@@ -36,7 +36,7 @@ def continue_running():
   #system.addForce(PlumedForce(plumed_script))
   print("here")
   platform = Platform.getPlatformByName("CUDA")
-  properties = {'CudaPrecision': 'double'}
+  properties = {'CudaPrecision': 'mixed'}
   simulation = app.Simulation(pdb.topology, system, integrator, platform, properties)
   simulation.context.setState(state)
 
