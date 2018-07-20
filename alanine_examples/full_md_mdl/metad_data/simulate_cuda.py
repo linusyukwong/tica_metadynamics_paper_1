@@ -40,7 +40,7 @@ def continue_running():
   simulation = app.Simulation(pdb.topology, system, integrator, platform, properties)
   simulation.context.setState(state)
 
-  backup("trajectory_cuda.dcd")
+  #backup("trajectory_cuda.dcd")
   f = open("./speed_report_cuda.txt",'w')
   simulation.reporters.append(app.DCDReporter('trajectory_cuda.dcd', 5000))
   simulation.reporters.append(app.StateDataReporter(f, 5000, step=True,\
@@ -49,7 +49,7 @@ def continue_running():
 
   #run for 23hrs
   #simulation.runForClockTime(3,stateFile="state.xml")
-  simulation.step(17269*5000)
+  simulation.step(2467*5000)
   backup("state_cuda.xml")
   state=simulation.context.getState(getPositions=True, getVelocities=True,\
     getForces=True,getEnergy=True,getParameters=True,enforcePeriodicBox=True)
